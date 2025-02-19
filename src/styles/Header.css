@@ -1,0 +1,82 @@
+.header {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+    background-color: #1a1a2e; /* Dark blue background */
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.2s;
+  }
+  
+  .brand:hover {
+    transform: scale(1.05);
+  }
+  
+  .brand-text-light {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #e6e6e6; /* Light text */
+  }
+  
+  .brand-text-accent {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: orangered; /* Mint green accent */
+  }
+  
+  .wishlist {
+    display: flex;
+    align-items: center;
+  }
+  
+  .wishlist-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .wishlist-icon:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+  }
+  
+  .wishlist-img {
+    width: 1.5rem;
+    height: 1.5rem;
+    filter: invert(80%); /* Makes dark icons visible on dark background */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    .header {
+      padding: 0 1rem;
+      height: 60px;
+    }
+    
+    .brand-text-light, .brand-text-accent {
+      font-size: 1.1rem;
+    }
+    
+    .wishlist-icon {
+      width: 2.2rem;
+      height: 2.2rem;
+    }
+  }
