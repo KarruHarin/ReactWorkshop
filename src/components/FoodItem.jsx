@@ -11,7 +11,6 @@ function FoodItem() {
   const { id } = useParams();
   const { cart, setcart } = useContext(CartContext); 
 
-  // Check if this item is already in favorites when component loads
   useEffect(() => {
     if (cart && cart.some(item => item.idMeal === id)) {
       setToggle(true);
@@ -21,10 +20,8 @@ function FoodItem() {
   const handleLike = () => {
     setToggle(!toggle);
     if (!toggle) {
-      // Only add to cart if not already liked
       setcart(prevCart => [...prevCart, foodDetails]);
     } else {
-      // Remove from cart if unliked
       setcart(prevCart => prevCart.filter(item => item.idMeal !== foodDetails.idMeal));
     }
   };
@@ -51,8 +48,8 @@ function FoodItem() {
 
   if (!foodDetails) {
     return (
-      <div className="loading-container">
-        <div className="loading-spinner"></div>
+      <div className="foodItem-loading-container">
+        <div className="foodItem-loading-spinner"></div>
       </div>
     );
   }
@@ -69,35 +66,35 @@ function FoodItem() {
   const recipeSteps = foodDetails.strInstructions.split('.').filter(step => step.trim() !== '');
 
   return (
-    <div className="food-container">
-      <div className="food-card">
-        <div className="food-image">
+    <div className="foodItem-container">
+      <div className="foodItem-card">
+        <div className="foodItem-image">
           <img src={foodDetails.strMealThumb} alt={foodDetails.strMeal} />
-          <div className="overlay"></div>
-          <div className="food-title">
+          <div className="foodItem-overlay"></div>
+          <div className="foodItem-title">
             <h1>{foodDetails.strMeal}</h1>
           </div>
         </div>
 
-        <div className="food-details">
-          <div className="headItem">
+        <div className="foodItem-details">
+          <div className="foodItem-headItem">
             <h2>Recipe Details</h2>
             <img 
               src={toggle ? like : logo} 
               onClick={handleLike} 
-              className="like-icon" 
+              className="foodItem-like-icon" 
               alt={toggle ? "Remove from favorites" : "Add to favorites"} 
             />
           </div>
           <p><strong>Name:</strong> {foodDetails.strMeal}</p>
           <p><strong>Category:</strong> {foodDetails.strCategory}</p>
           <p><strong>Cuisine:</strong> {foodDetails.strArea}</p>
-          <a href={foodDetails.strYoutube} target="_blank" rel="noopener noreferrer" className="video-link">
+          <a href={foodDetails.strYoutube} target="_blank" rel="noopener noreferrer" className="foodItem-video-link">
             Watch Recipe Video
           </a>
         </div>
 
-        <div className="ingredients-section">
+        <div className="foodItem-ingredients-section">
           <h2>Ingredients</h2>
           <ul>
             {ingredients.map((ingredient, index) => (
@@ -106,7 +103,7 @@ function FoodItem() {
           </ul>
         </div>
 
-        <div className="recipe-section">
+        <div className="foodItem-recipe-section">
           <h2>Recipe</h2>
           <ol>
             {recipeSteps.map((step, index) => (

@@ -1,50 +1,58 @@
+/* FoodCard.css */
+.food-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 300px;
+}
+
 .food-card {
-    width: 100%;
-    max-width: 20rem;
-    background-color: white;
-    box-shadow: 0px 4px 6px rgba(255, 165, 0, 0.2);
-    border-radius: 0.5rem;
-    overflow: hidden;
-    margin: 0.5rem;
-    height: 20rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .food-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 6px 10px rgba(255, 165, 0, 0.3);
-  }
-  
-  .food-card-image {
-    position: relative;
-    height: 66%;
-  }
-  
-  .food-card-image img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .food-card-content {
-    padding: 0.75rem 1rem;
-    height: 34%;
-    background: linear-gradient(to right, white, #fff7eb);
-  }
-  
-  .food-card-content h2 {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: #2d3748;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  .food-card-content p {
-    font-size: 0.875rem;
-    color: #4a5568;
-  }
-  
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  height: 350px;
+}
+
+.food-card-image {
+  width: 300px;
+  height: 250px;
+}
+
+.food-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.food-card-content {
+  padding: 16px;
+}
+
+.food-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 8px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.food-card-category {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  gap: 24px;
+  padding: 24px;
+  justify-content: center;
+}

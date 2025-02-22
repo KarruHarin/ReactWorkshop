@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Home.css";
+import FoodCard from "./FoodCard";
 
 function Home() {
   const [data, setData] = useState([]);
@@ -10,7 +11,6 @@ function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        
         const meals = [];
         for (let index = 0; index < 5; index++) {
           const response = await fetch(
@@ -43,7 +43,7 @@ function Home() {
           <button
             disabled={isLoading}
             onClick={() => {
-              setIsLoading(true); 
+              setIsLoading(true);
               setLoad(!load);
             }}
           >
@@ -61,17 +61,13 @@ function Home() {
             <div className="loading-spinner"></div>
           ) : (
             data.map((meal, index) => (
-              <div key={index} className="recipe-card">
-                <img src={meal.strMealThumb} alt={meal.strMeal} />
-                <h3>{meal.strMeal}</h3>
-                <p>{meal.strCategory}</p>
-                <Link
-                  to={`/recipe/${meal.idMeal}`}
-                  className="view-recipe-button"
-                >
-                  View Recipe
-                </Link>
-              </div>
+              <FoodCard
+                key={index}
+                image={meal.strMealThumb}
+                name={meal.strMeal}
+                category={meal.strCategory}
+                id={meal.idMeal}
+              />
             ))
           )}
         </div>
